@@ -1,0 +1,43 @@
+# Query is used to fetch/get data
+type Query {
+    allCars: [Car]
+    carById(id: String): Car
+    carByManufacturer(manufacturer: String): [Car]
+    carByModel(model: String): [Car]
+    carByManufacturingYear(mfgYear: Int): [Car]
+    carByTransmissionType(transmissionType: String): [Car]
+    carByParams(params: [QueryParams]): [Car]
+}
+
+# Mutation is used to create/update data
+type Mutation {
+    addCar(car: AddCarInput): Car
+    updateCar(id: String, updateCar: AddCarInput): Car
+    deleteCar(id: String): Car
+}
+
+type Car {
+    id: ID
+    manufacturer: String
+    model: String
+    manufacturingYear: Int
+    manufacturingMonth: Int
+    manufacturingDate: Int
+    mileage: Float
+    transmissionType: String
+}
+
+input QueryParams {
+    key: String!
+    value: String!
+}
+
+input AddCarInput {
+    manufacturer: String
+    model: String
+    manufacturingYear: Int
+    manufacturingMonth: Int
+    manufacturingDate: Int
+    mileage: Float
+    transmissionType: String
+}

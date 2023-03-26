@@ -1,0 +1,445 @@
+{
+	"info": {
+		"_postman_id": "761206b4-d387-417a-8ecf-86ed4c17ffaf",
+		"name": "Spring GraphQL",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "13677338"
+	},
+	"item": [
+		{
+			"name": "Get All Cars",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "graphql",
+					"graphql": {
+						"query": "query carsQuery {\r\n    allCars {\r\n        id,\r\n        manufacturer,\r\n        model,\r\n        manufacturingMonth,\r\n        manufacturingYear,\r\n        transmissionType\r\n    }\r\n}",
+						"variables": ""
+					}
+				},
+				"url": {
+					"raw": "localhost:8080/graphql",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"graphql"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Get All Cars",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "graphql",
+							"graphql": {
+								"query": "query carsQuery {\r\n    allCars {\r\n        id,\r\n        manufacturer,\r\n        model,\r\n        manufacturingDate,\r\n        manufacturingMonth,\r\n        manufacturingYear,\r\n        transmissionType\r\n    }\r\n}",
+								"variables": ""
+							}
+						},
+						"url": {
+							"raw": "localhost:8080/graphql",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"graphql"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Transfer-Encoding",
+							"value": "chunked"
+						},
+						{
+							"key": "Date",
+							"value": "Sun, 26 Mar 2023 12:39:38 GMT"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=60"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"data\": {\n        \"allCars\": [\n            {\n                \"id\": \"fbb9bbd8ee194df0b7f01b60e6ec33e1\",\n                \"manufacturer\": \"Hyundai\",\n                \"model\": \"Verna\",\n                \"manufacturingDate\": 15,\n                \"manufacturingMonth\": 3,\n                \"manufacturingYear\": 2023,\n                \"transmissionType\": \"Automatic-CVT\"\n            },\n            {\n                \"id\": \"2f06460b4a86460d9b56c6ab099dd240\",\n                \"manufacturer\": \"VolksWagon\",\n                \"model\": \"POLO GT\",\n                \"manufacturingDate\": 9,\n                \"manufacturingMonth\": 9,\n                \"manufacturingYear\": 2020,\n                \"transmissionType\": \"Manual\"\n            },\n            {\n                \"id\": \"9bef776dac0c409bbbd98ce3bff29347\",\n                \"manufacturer\": \"BMW\",\n                \"model\": \"X7\",\n                \"manufacturingDate\": 28,\n                \"manufacturingMonth\": 1,\n                \"manufacturingYear\": 2022,\n                \"transmissionType\": \"Automatic-CVT\"\n            }\n        ]\n    }\n}"
+				}
+			]
+		},
+		{
+			"name": "Get Car By Maker",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "graphql",
+					"graphql": {
+						"query": "query fetchCarQuery {\r\n    carByManufacturer(manufacturer: \"BMW\") {\r\n        id,\r\n        manufacturer,\r\n        model,\r\n        mileage,\r\n        transmissionType\r\n    }\r\n}",
+						"variables": ""
+					}
+				},
+				"url": {
+					"raw": "localhost:8080/graphql",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"graphql"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Get Car By Maker",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "graphql",
+							"graphql": {
+								"query": "query fetchCarQuery {\r\n    carByManufacturer(manufacturer: \"BMW\") {\r\n        id,\r\n        manufacturer,\r\n        model,\r\n        mileage,\r\n        transmissionType\r\n    }\r\n}",
+								"variables": ""
+							}
+						},
+						"url": {
+							"raw": "localhost:8080/graphql",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"graphql"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Transfer-Encoding",
+							"value": "chunked"
+						},
+						{
+							"key": "Date",
+							"value": "Sun, 26 Mar 2023 12:38:55 GMT"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=60"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"data\": {\n        \"carByManufacturer\": [\n            {\n                \"id\": \"9bef776dac0c409bbbd98ce3bff29347\",\n                \"manufacturer\": \"BMW\",\n                \"model\": \"X7\",\n                \"mileage\": 8,\n                \"transmissionType\": \"Automatic-CVT\"\n            }\n        ]\n    }\n}"
+				},
+				{
+					"name": "Error",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "graphql",
+							"graphql": {
+								"query": "query fetchCarQuery {\r\n    carByManufacturer(manufacturer: \"BMW\") {\r\n        ids,\r\n        manufacturer,\r\n        model,\r\n        mileage,\r\n        transmissionType\r\n    }\r\n}",
+								"variables": ""
+							}
+						},
+						"url": {
+							"raw": "localhost:8080/graphql",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"graphql"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Transfer-Encoding",
+							"value": "chunked"
+						},
+						{
+							"key": "Date",
+							"value": "Sun, 26 Mar 2023 12:39:13 GMT"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=60"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"errors\": [\n        {\n            \"error_message\": \"Field 'ids' in type 'Car' is undefined in carByManufacturer/ids\",\n            \"error_type\": \"ValidationError\",\n            \"error_code\": 400\n        }\n    ]\n}"
+				}
+			]
+		},
+		{
+			"name": "Add Car",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "graphql",
+					"graphql": {
+						"query": "mutation AddCar {\r\n    addCar (\r\n        car: {\r\n                manufacturer: \"Hyundai\",\r\n                model: \"Verna\",\r\n                transmissionType: \"Automatic-DCT\",\r\n                mileage: 17.50,\r\n                manufacturingYear: 2023,\r\n                manufacturingMonth: 3,\r\n                manufacturingDate: 18\r\n            }\r\n        ) {\r\n        id\r\n    }\r\n}",
+						"variables": ""
+					}
+				},
+				"url": {
+					"raw": "localhost:8080/graphql",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"graphql"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Invalid request",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "graphql",
+							"graphql": {
+								"query": "mutation AddCar {\r\n    addCar (\r\n        car: {\r\n                # manufacturer: \"Maruti Suzuki\", \r\n                model: \"Brezza ZXI\",\r\n                transmissionType: \"Automatic-TorqueConverter\",\r\n                mileage: 22.0, \r\n                manufacturingYear: 2023, \r\n                manufacturingMonth: 3, \r\n            }\r\n        ) {\r\n        id\r\n    }\r\n}",
+								"variables": ""
+							}
+						},
+						"url": {
+							"raw": "localhost:8080/graphql",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"graphql"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Transfer-Encoding",
+							"value": "chunked"
+						},
+						{
+							"key": "Date",
+							"value": "Sun, 26 Mar 2023 13:33:32 GMT"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=60"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"errors\": [\n        {\n            \"error_message\": \"Invalid car manufacturer\",\n            \"error_type\": \"DataFetchingException\",\n            \"error_code\": 500\n        }\n    ],\n    \"data\": {}\n}"
+				},
+				{
+					"name": "Add Car",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "graphql",
+							"graphql": {
+								"query": "mutation AddCar {\r\n    addCar (\r\n        car: {\r\n                manufacturer: \"Maruti Suzuki\", \r\n                model: \"Brezza ZXI\",\r\n                transmissionType: \"Automatic-TorqueConverter\",\r\n                mileage: 22.0, \r\n                manufacturingYear: 2023, \r\n                manufacturingMonth: 3, \r\n            }\r\n        ) {\r\n        id\r\n    }\r\n}",
+								"variables": ""
+							}
+						},
+						"url": {
+							"raw": "localhost:8080/graphql",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"graphql"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Transfer-Encoding",
+							"value": "chunked"
+						},
+						{
+							"key": "Date",
+							"value": "Sun, 26 Mar 2023 13:39:01 GMT"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=60"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"data\": {\n        \"addCar\": {\n            \"id\": \"cc4f2310277c479e83ba6682be58146a\"\n        }\n    }\n}"
+				}
+			]
+		},
+		{
+			"name": "Get Car By Params",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "graphql",
+					"graphql": {
+						"query": "query getCarsByParams {\r\n    carByParams (\r\n      params: [{\r\n          key: \"model\",\r\n          value: \"Verna\"\r\n      }\r\n      ]\r\n    )\r\n    {\r\n        id,\r\n        manufacturer,\r\n        model,\r\n        manufacturingYear\r\n    }\r\n}",
+						"variables": ""
+					}
+				},
+				"url": {
+					"raw": "localhost:8080/graphql",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"graphql"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Get Car By Params",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "graphql",
+							"graphql": {
+								"query": "query getCarsByParams {\r\n    carByParams (\r\n      params: [{\r\n          key: \"model\",\r\n          value: \"Verna\"\r\n      }\r\n      ]\r\n    )\r\n    {\r\n        id,\r\n        manufacturer,\r\n        model,\r\n        manufacturingYear\r\n    }\r\n}",
+								"variables": ""
+							}
+						},
+						"url": {
+							"raw": "localhost:8080/graphql",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"graphql"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Transfer-Encoding",
+							"value": "chunked"
+						},
+						{
+							"key": "Date",
+							"value": "Sun, 26 Mar 2023 15:42:04 GMT"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=60"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"data\": {\n        \"carByParams\": [\n            {\n                \"id\": \"89b4c46ebfe2486b810c383e086a7517\",\n                \"manufacturer\": \"Hyundai\",\n                \"model\": \"Verna\",\n                \"manufacturingYear\": 2023\n            }\n        ]\n    }\n}"
+				}
+			]
+		},
+		{
+			"name": "Delete Car",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "graphql",
+					"graphql": {
+						"query": "mutation DeleteCar {\r\n    deleteCar (id: \"thisistheidofrandomcar\") {\r\n        id\r\n        model\r\n        manufacturer\r\n        manufacturingDate\r\n        manufacturingMonth\r\n        manufacturingYear\r\n        mileage\r\n        transmissionType\r\n    }\r\n}",
+						"variables": ""
+					}
+				},
+				"url": {
+					"raw": "localhost:8080/graphql",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"graphql"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
